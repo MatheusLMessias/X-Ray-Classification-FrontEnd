@@ -3,8 +3,8 @@ import { View, Text, StatusBar, StyleSheet, TouchableOpacity, Image } from "reac
 import styles from "./styles";
 
 interface HeaderInitialScreenProps {
-    function: any;
-    name: string;
+  route: any;
+  name: string;
 }
 
 const HeaderInitialScreen = (props: HeaderInitialScreenProps) => {
@@ -20,7 +20,7 @@ const HeaderInitialScreen = (props: HeaderInitialScreenProps) => {
       <View style={styles.viewButton}> 
         <TouchableOpacity
           style={styles.buttonHeader}
-          onPress={props.function}
+          onPress={props.route}
         >
           <Image
             style={styles.image}

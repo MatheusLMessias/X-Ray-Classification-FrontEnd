@@ -7,7 +7,7 @@ const scenes = () => {
   const Stack = createNativeStackNavigator();
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="InitialScreen">
+      <Stack.Navigator initialRouteName="ImageHistoryScreen">
         <Stack.Screen
           name="InitialScreen"
           component={InitialScreen}

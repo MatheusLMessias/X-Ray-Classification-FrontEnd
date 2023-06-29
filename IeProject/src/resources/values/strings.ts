@@ -9,3 +9,6 @@ export const RAIOX_LIST = 'Apelido Raio-X:'
 export const DATA_LIST = 'Data:'
 export const PACIENTE_LIST = 'Paciente:'
 export const IDADE_LIST = 'Idade:'
+
+export const TITULO_HEADER_TELA_REGISTRO = 'Registre-se'
+export const TITULO_BUTTON_TELA_REGISTRO = 'Registrar'

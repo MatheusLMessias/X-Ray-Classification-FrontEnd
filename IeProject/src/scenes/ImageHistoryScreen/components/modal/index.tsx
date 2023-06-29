@@ -2,11 +2,17 @@ import React from 'react';
 import {View, Text, TouchableOpacity, Modal, Image} from 'react-native';
 import styles from './styles';
 import ImageInfoList from '../imageInfoList';
+import { TITULO_DIAGNOSTICO, TITULO_MODAL } from '../../../../resources/values/strings';
 
-interface ModalProps {}
+interface ModalProps {
+  openClosed: boolean;
+  dismiss: any;
+  route: any;
+  data: Object;
+  text: String;
+}
 
-const ModalComponent = (props: any) => {
-  console.log(props.data);
+const ModalComponent = (props: ModalProps) => {
   return (
     <View>
       <Modal
@@ -22,17 +28,17 @@ const ModalComponent = (props: any) => {
                 onPress={props.route}>
                 <Image
                   style={styles.image}
-                  source={require('../../../../img/previous.png')}
+                  source={require('../../../../img/close.png')}
                   tintColor="#688591"
                 />
               </TouchableOpacity>
               <Text style={styles.headerText} numberOfLines={1}>
-                Informações do Raio-X
+                {TITULO_MODAL}
               </Text>
             </View>
             <ImageInfoList data={props.data} />
             <Text style={styles.titleList} numberOfLines={1}>
-              Diagnóstico
+              {TITULO_DIAGNOSTICO}
             </Text>
             <Text style={styles.textList}>{props.text}</Text>
           </View>

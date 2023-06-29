@@ -7,9 +7,9 @@ interface TextComponentProps {
 }
 
 const TextComponent = (props: TextComponentProps) => {
-  return( 
+  return (
     <View style={styles.viewTextInitial}>
-        <Text style={styles.textInitial}>{props.text}</Text>
+      <Text style={styles.textInitial}>{props.text}</Text>
     </View>
   );
 };

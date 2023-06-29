@@ -4,8 +4,8 @@ const styles = StyleSheet.create({
   containerList: {
     marginRight: 10,
     marginTop: 10,
-    alignItems: "flex-start",
-    justifyContent: "flex-start"
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
   },
 });
 

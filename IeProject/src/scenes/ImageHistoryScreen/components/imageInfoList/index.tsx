@@ -1,14 +1,19 @@
 import React from 'react';
 import {View, Text, FlatList, StyleSheet} from 'react-native';
 import styles from './styles';
+import { DATA_LIST, IDADE_LIST, PACIENTE_LIST, RAIOX_LIST } from '../../../../resources/values/strings';
 
-const ImageInfoList = (props: any) => {
+interface ImageInfoListProps {
+  data: any
+}
+
+const ImageInfoList = (props: ImageInfoListProps) => {
   return (
     <View style={styles.containerList}>
-      <Text>{`Apelido Raio-X: ${props.data.nomeRaioX}`}</Text>
-      <Text>{`Data: ${props.data.data}`}</Text>
-      <Text>{`Paciente: ${props.data.paciente}`}</Text>
-      <Text>{`Idade: ${props.data.idade}`}</Text>
+      <Text>{`${RAIOX_LIST} ${props.data.nomeRaioX}`}</Text>
+      <Text>{`${DATA_LIST} ${props.data.data}`}</Text>
+      <Text>{`${PACIENTE_LIST} ${props.data.paciente}`}</Text>
+      <Text>{`${IDADE_LIST} ${props.data.idade}`}</Text>
     </View>
   );
 };

@@ -3,11 +3,11 @@ import styles from './styles';
 import React from 'react';
 import HeaderRegisterComponent from './components/headerRegisterComponent';
 import {TITULO_BUTTON_TELA_REGISTRO, TITULO_HEADER_TELA_REGISTRO} from '../../resources/values/strings';
-import InputRegisterComponent from '../../components/inputComponent';
+import InputLoginComponent from '../../components/inputComponent';
 import UseRegisterScreen from './hook/UseRegisterScreen';
 import ButtonComponent from './components/button';
 
-const RegisterScreen = (navigation: any) => {
+const RegisterScreen = ({navigation}: any) => {
   const {        
     name,
     newEmail,
@@ -23,10 +23,9 @@ const RegisterScreen = (navigation: any) => {
         <View style={styles.containerHeader}>
           <HeaderRegisterComponent
             name={TITULO_HEADER_TELA_REGISTRO}
-            route={() => Alert.alert('Login')}
-            //route={() => navigation.navigate('Login')}
+            route={() => navigation.navigate('LoginScreen')}
           />
-        <InputRegisterComponent
+        <InputLoginComponent
           label="Nome"
           placeholder="Digite seu nome"
           type="default"
@@ -34,7 +33,7 @@ const RegisterScreen = (navigation: any) => {
           data={name}
           setData={setName}
         />
-        <InputRegisterComponent
+        <InputLoginComponent
           label="Email"
           placeholder="Digite seu email"
           type="email-address"
@@ -42,7 +41,7 @@ const RegisterScreen = (navigation: any) => {
           data={newEmail}
           setData={setNewEmail}
         />
-          <InputRegisterComponent
+          <InputLoginComponent
             label="Senha"
             placeholder="Digite uma senha"
             type="default"
@@ -53,8 +52,7 @@ const RegisterScreen = (navigation: any) => {
 
           <ButtonComponent 
             text={TITULO_BUTTON_TELA_REGISTRO} 
-            route={() => Alert.alert('Login')}
-            //route={() => navigation.navigate('Login')}            
+            route={() => navigation.navigate('LoginScreen')}            
           />
         </View>
 

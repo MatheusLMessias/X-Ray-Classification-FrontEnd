@@ -12,3 +12,7 @@ export const IDADE_LIST = 'Idade:'
 
 export const TITULO_HEADER_TELA_REGISTRO = 'Registre-se'
 export const TITULO_BUTTON_TELA_REGISTRO = 'Registrar'
+
+export const TITULO_HEADER_TELA_LOGIN = "Login"
+export const TITULO_BUTTON_TELA_LOGIN_REGISTRAR = 'Registrar'
+export const TITULO_BUTTON_TELA_LOGIN_LOGAR = 'Login'

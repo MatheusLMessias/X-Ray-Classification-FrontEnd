@@ -7,6 +7,10 @@ import TextComponent from './components/textComponent';
 import {TEXTO_BOAS_VINDAS_TELA_INICIAL} from '../../resources/values/strings';
 import UseInitialScreen from './hooks/useInitialScreen';
 
+import ModalComponentInsertImageInfo from './components/modalInsertImageInfo';
+
+import ModalComponentPerfilInfo from './components/modalPerfilInfo';
+
 interface InitialScreenProps {
   navigation: any;
 }
@@ -18,13 +22,13 @@ interface InitialScreenProps {
 // )}
 
 const InitialScreen = ({navigation}: InitialScreenProps) => {
-  const {initial} = UseInitialScreen();
+  const {data, initial, openClosedInsertImageInfo, openClosedPerfilinfo, modalFuctionInsertImageInfo, modalFuctionPerfilInfo} = UseInitialScreen();
 
   return (
     <View>
       <HeaderInitialScreen
         initialScreen={initial}
-        route={() => Alert.alert('Card de menu principal')}
+        route={() => modalFuctionPerfilInfo(true)}
         name={'Olá, fulano'}
       />
       <View>
@@ -32,13 +36,11 @@ const InitialScreen = ({navigation}: InitialScreenProps) => {
       </View>
       <View style={styles.containerButton}>
         <MainButton
-          route={() => Alert.alert('Tela de Tirar Foto')}
-          //route={() => navigation.navigate("")}
+          route={() => Alert.alert("Tela de Tirar Foto")}
           text="Tirar Foto"
         />
         <MainButton
-          route={() => Alert.alert('Tela de Inserir Foto')}
-          //route={() => navigation.navigate("")}
+          route={() => modalFuctionInsertImageInfo(true)}
           text="Inserir Foto"
         />
         <MainButton
@@ -46,6 +48,22 @@ const InitialScreen = ({navigation}: InitialScreenProps) => {
           text="Histórico de Imagens"
         />
       </View>
+
+      <ModalComponentPerfilInfo
+        openClosed={openClosedPerfilinfo}
+        dismiss={() => navigation.navigate('InitialScreen')}
+        route={() => modalFuctionPerfilInfo(false)}
+        data={data}
+        text={""}
+      />
+
+      <ModalComponentInsertImageInfo
+        openClosed={openClosedInsertImageInfo}
+        dismiss={() => navigation.navigate('InitialScreen')}
+        route={() => modalFuctionInsertImageInfo(false)}
+        data={data}
+        text={""}
+      />
     </View>
   );
 };

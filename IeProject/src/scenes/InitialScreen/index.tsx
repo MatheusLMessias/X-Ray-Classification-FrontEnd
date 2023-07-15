@@ -1,5 +1,5 @@
 import React from 'react';
-import {Alert, ScrollView, Text, View} from 'react-native';
+import {Alert, View} from 'react-native';
 import MainButton from '../../components/buttons';
 import styles from './styles';
 import HeaderInitialScreen from '../../components/header';

@@ -1,7 +1,6 @@
 import {Button, View} from 'react-native';
 import {HEADER_TELA_HISTORICO_IMAGENS} from '../../resources/values/strings';
 import Header from '../../components/header';
-import {useState} from 'react';
 import ModalComponent from './components/modal';
 import useImageHistoryScreen from './hooks/useImageHistoryScreen';
 

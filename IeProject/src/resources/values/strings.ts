@@ -19,7 +19,7 @@ export const IDADE_INSERT_IMAGE_INFO = 'Idade:'
 
 export const TITULO_PERFIL_INFO = 'Informações do Perfil'
 export const NOME_PERFIL_INFO = 'Nome:'
-export const EMAIL_PERFIL_INFO = 'Data:'
+export const EMAIL_PERFIL_INFO = 'Email:'
 
 export const TITULO_HEADER_TELA_REGISTRO = 'Registre-se'
 export const TITULO_BUTTON_TELA_REGISTRO = 'Registrar'

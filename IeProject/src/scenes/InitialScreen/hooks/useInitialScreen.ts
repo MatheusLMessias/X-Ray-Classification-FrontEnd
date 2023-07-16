@@ -1,11 +1,10 @@
 import {useState} from 'react';
 import {
-  imagensDescription,
-  imagensInfos,
-} from '../../../resources/mocks/imagesMocks';
+  infoPerfil
+} from '../../../resources/mocks/infoPerfilMocks';
 
 const useInitialScreen = () => {
-  const [data, useData] = useState(imagensInfos);
+  const [data, useData] = useState(infoPerfil);
   const [initial, setInitial] = useState<boolean>(true);
   const [openClosedPerfilinfo, setOpenClosedPerfilinfo] = useState<boolean>(false);
   const [openClosedInsertImageInfo, setOpenClosedInsertImageInfo] = useState<boolean>(false);

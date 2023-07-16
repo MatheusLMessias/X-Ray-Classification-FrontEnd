@@ -10,11 +10,8 @@ interface PerfilInfoDataProps {
 const PerfilInfoData = (props: PerfilInfoDataProps) => {
   return (
     <View style={styles.containerList}>
-      <Text>{NOME_PERFIL_INFO} </Text>
-      <Text>{EMAIL_PERFIL_INFO} </Text>
-      
-      {/* <Text>{`${NOME_PERFIL_INFO} ${props.data.nomeRaioX}`}</Text>
-      <Text>{`${EMAIL_PERFIL_INFO} ${props.data.data}`}</Text>*/}
+      <Text>{`${NOME_PERFIL_INFO} ${props.data.name}`}</Text>
+      <Text>{`${EMAIL_PERFIL_INFO} ${props.data.email}`}</Text>
     </View>
   );
 };

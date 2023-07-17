@@ -12,10 +12,10 @@ export const IDADE_LIST = 'Idade:'
 
 export const TITULO_INSERT_IMAGE_INFO = 'Inserir informações do Raio-X'
 
-export const RAIOX_INSERT_IMAGE_INFO = 'Nome do Raio-X:'
-export const DATA_INSERT_IMAGE_INFO = 'Data:'
-export const PACIENTE_INSERT_IMAGE_INFO = 'Paciente:'
-export const IDADE_INSERT_IMAGE_INFO = 'Idade:'
+export const RAIOX_INSERT_IMAGE_INFO = 'Nome do Raio-X'
+export const DATA_INSERT_IMAGE_INFO = 'Data'
+export const PACIENTE_INSERT_IMAGE_INFO = 'Paciente'
+export const IDADE_INSERT_IMAGE_INFO = 'Idade'
 
 export const TITULO_PERFIL_INFO = 'Informações do Perfil'
 export const NOME_PERFIL_INFO = 'Nome:'

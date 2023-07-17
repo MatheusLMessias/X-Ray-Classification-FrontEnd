@@ -9,6 +9,11 @@ const useInitialScreen = () => {
   const [openClosedPerfilinfo, setOpenClosedPerfilinfo] = useState<boolean>(false);
   const [openClosedInsertImageInfo, setOpenClosedInsertImageInfo] = useState<boolean>(false);
 
+  const [raioxName, setRaioxName] = useState<String>("");
+  const [date, setDate] = useState<String>("");
+  const [patient, setPatient] = useState<String>("");
+  const [age, setAge] = useState<String>("");
+
   const modalFuctionInsertImageInfo = (data: boolean) => {
     if (data == true) {
       setOpenClosedInsertImageInfo(true);
@@ -33,6 +38,15 @@ const useInitialScreen = () => {
     openClosedInsertImageInfo,
     modalFuctionInsertImageInfo,
     modalFuctionPerfilInfo,
+
+    raioxName,
+    date,
+    patient,
+    age,
+    setRaioxName,
+    setDate,
+    setPatient,
+    setAge,
   };
 };
 

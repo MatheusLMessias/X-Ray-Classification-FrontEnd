@@ -20,4 +20,4 @@ const MainButton = (props: MainButtonProps) => {
   )
 }
 
-export default MainButton;
+export default MainButton;  

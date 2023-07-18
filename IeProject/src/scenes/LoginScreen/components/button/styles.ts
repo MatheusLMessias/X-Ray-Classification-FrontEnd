@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-    mainButton: {
+    buttonComponent: {
         marginTop: 50
       },
 
@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
         borderColor: "#688591"
       },
     
-    mainButtonText: {
+    buttonComponentText: {
         fontSize: 25,
         color: "#FFF",
         fontWeight: "normal"

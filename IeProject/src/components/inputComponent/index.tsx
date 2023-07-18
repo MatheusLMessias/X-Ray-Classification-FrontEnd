@@ -2,7 +2,7 @@ import React from 'react';
 import {Text, TextInput, View} from 'react-native';
 import styles from './styles';
 
-const InputLoginComponent = (props: any) => {
+const InputComponent = (props: any) => {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>{props.label}</Text>
@@ -19,4 +19,4 @@ const InputLoginComponent = (props: any) => {
   );
 };
 
-export default InputLoginComponent;
+export default InputComponent;

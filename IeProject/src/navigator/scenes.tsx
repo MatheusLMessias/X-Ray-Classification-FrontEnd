@@ -3,12 +3,18 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import ImageHistoryScreen from "../scenes/ImageHistoryScreen";
 import RegisterScreen from "../scenes/RegisterScreen";
+import LoginScreen from "../scenes/LoginScreen";
 
 const scenes = () => {
   const Stack = createNativeStackNavigator();
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="InitialScreen">
+      <Stack.Navigator initialRouteName="LoginScreen">
+      <Stack.Screen
+          name="LoginScreen"
+          component={LoginScreen}
+          options={{ headerShown: false }}
+        />
       <Stack.Screen
           name="RegisterScreen"
           component={RegisterScreen}

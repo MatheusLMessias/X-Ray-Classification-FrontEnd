@@ -8,7 +8,7 @@ const scenes = () => {
   const Stack = createNativeStackNavigator();
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="RegisterScreen">
+      <Stack.Navigator initialRouteName="InitialScreen">
       <Stack.Screen
           name="RegisterScreen"
           component={RegisterScreen}

@@ -3,7 +3,7 @@ import styles from './styles';
 import React from 'react';
 import HeaderLoginComponent from './components/headerLoginComponent';
 import {TITULO_BUTTON_TELA_LOGIN_LOGAR, TITULO_BUTTON_TELA_LOGIN_REGISTRAR, TITULO_BUTTON_TELA_REGISTRO, TITULO_HEADER_TELA_LOGIN, TITULO_HEADER_TELA_REGISTRO} from '../../resources/values/strings';
-import InputLoginComponent from '../../components/inputComponent';
+import InputComponent from '../../components/inputComponent';
 import UseLoginScreen from './hook/UseLoginScreen';
 import ButtonComponent from './components/button';
 
@@ -24,7 +24,7 @@ const LoginScreen = ({navigation}: any) => {
             name={TITULO_HEADER_TELA_LOGIN}
           />
 
-        <InputLoginComponent
+        <InputComponent
           label="Email"
           placeholder="Digite seu email"
           type="default"
@@ -32,7 +32,7 @@ const LoginScreen = ({navigation}: any) => {
           data={email}
           setData={setEmail}
         />
-          <InputLoginComponent
+          <InputComponent
             label="Senha"
             placeholder="Digite uma senha"
             type="default"

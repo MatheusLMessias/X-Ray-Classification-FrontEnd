@@ -3,7 +3,7 @@ import styles from './styles';
 import React from 'react';
 import HeaderRegisterComponent from './components/headerRegisterComponent';
 import {TITULO_BUTTON_TELA_REGISTRO, TITULO_HEADER_TELA_REGISTRO} from '../../resources/values/strings';
-import InputLoginComponent from '../../components/inputComponent';
+import InputComponent from '../../components/inputComponent';
 import UseRegisterScreen from './hook/UseRegisterScreen';
 import ButtonComponent from './components/button';
 
@@ -25,7 +25,7 @@ const RegisterScreen = ({navigation}: any) => {
             name={TITULO_HEADER_TELA_REGISTRO}
             route={() => navigation.navigate('LoginScreen')}
           />
-        <InputLoginComponent
+        <InputComponent
           label="Nome"
           placeholder="Digite seu nome"
           type="default"
@@ -33,7 +33,7 @@ const RegisterScreen = ({navigation}: any) => {
           data={name}
           setData={setName}
         />
-        <InputLoginComponent
+        <InputComponent
           label="Email"
           placeholder="Digite seu email"
           type="email-address"
@@ -41,7 +41,7 @@ const RegisterScreen = ({navigation}: any) => {
           data={newEmail}
           setData={setNewEmail}
         />
-          <InputLoginComponent
+          <InputComponent
             label="Senha"
             placeholder="Digite uma senha"
             type="default"

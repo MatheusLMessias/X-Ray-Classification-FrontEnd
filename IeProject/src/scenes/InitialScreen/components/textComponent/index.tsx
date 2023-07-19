@@ -1,6 +1,6 @@
 import React from 'react';
 import {Alert, ScrollView, Text, View} from 'react-native';
-import styles from '../styles';
+import styles from '../../styles';
 
 interface TextComponentProps {
   text: string;

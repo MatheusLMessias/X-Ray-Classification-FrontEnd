@@ -2,8 +2,9 @@ import {useState} from 'react';
 import {
   infoPerfil
 } from '../../../resources/mocks/infoPerfilMocks';
+import { Alert } from 'react-native';
 
-const useInitialScreen = () => {
+const useInitialScreen = (navigation: any) => {
   const [data, useData] = useState(infoPerfil);
   const [initial, setInitial] = useState<boolean>(true);
   const [openClosedPerfilinfo, setOpenClosedPerfilinfo] = useState<boolean>(false);
@@ -30,6 +31,21 @@ const useInitialScreen = () => {
     }
   };
 
+  const handleLogout = () => {
+    Alert.alert(
+      'Sair da Conta',
+      'Tem certeza que deseja sair da conta?',
+      [
+        { text: 'Cancelar', onPress: () => {}, style: 'cancel' },
+        {
+          text: 'Sair',
+          onPress: () => navigation.navigate('LoginScreen'),
+          style: 'destructive',
+        },
+      ],
+    );
+  };
+
   return {
     data,
     setInitial,
@@ -38,7 +54,8 @@ const useInitialScreen = () => {
     openClosedInsertImageInfo,
     modalFuctionInsertImageInfo,
     modalFuctionPerfilInfo,
-
+    handleLogout,
+    
     raioxName,
     date,
     patient,

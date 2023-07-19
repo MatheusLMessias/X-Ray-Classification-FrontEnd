@@ -16,6 +16,7 @@ const RegisterScreen = ({navigation}: any) => {
     setNewEmail,
     setNewPassword
   } = UseRegisterScreen()
+  
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor="#CEEBF7" barStyle="default" />

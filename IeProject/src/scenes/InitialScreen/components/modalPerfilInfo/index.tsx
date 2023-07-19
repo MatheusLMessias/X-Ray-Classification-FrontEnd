@@ -5,32 +5,18 @@ import PerfilInfoData from '../perfilInfoData';
 import { TITULO_PERFIL_INFO } from '../../../../resources/values/strings';
 import ButtonComponent from '../button';
 import { useNavigation } from '@react-navigation/native';
+import handleLogout from '../../hooks/useInitialScreen'
 
 interface ModalProps {
+  handleLogout: () => void;
   openClosed: boolean;
   dismiss: any;
-  route: any;
   data: Object;
   text: String;
+  onPress: any;
 }
 
 const ModalComponentPerfilInfo = (props: ModalProps) => {
-  const navigation = useNavigation();
-
-  const handleLogout = () => {
-    Alert.alert(
-      'Sair da Conta',
-      'Tem certeza que deseja sair da conta?',
-      [
-        { text: 'Cancelar', onPress: () => {}, style: 'cancel' },
-        {
-          text: 'Sair',
-          onPress: () => navigation.navigate('LoginScreen'),
-          style: 'destructive',
-        },
-      ],
-    );
-  };
 
   return (
     <View>
@@ -43,7 +29,7 @@ const ModalComponentPerfilInfo = (props: ModalProps) => {
         <View style={styles.modal}>
           <View style={styles.modalView}>
             <View style={styles.header}>
-              <TouchableOpacity style={styles.buttonHeader} onPress={props.route}>
+              <TouchableOpacity style={styles.buttonHeader} onPress={props.onPress}>
                 <Image
                   style={styles.image}
                   source={require('../../../../img/close.png')}
@@ -58,7 +44,7 @@ const ModalComponentPerfilInfo = (props: ModalProps) => {
             <View>
               <ButtonComponent
                 text={'Sair da Conta'}
-                onPress={handleLogout}
+                onPress={props.handleLogout}
                 color="#F44336"
                 width={125}
                 height={40}

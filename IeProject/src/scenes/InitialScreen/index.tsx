@@ -15,14 +15,16 @@ interface InitialScreenProps {
   navigation: any;
 }
 
-// TODO - alert para loggout
-// route={() => Alert.alert("Atenção", "Você deseja realmente sair?" , [
-//   {text: "Sim", onPress: () => navigation.navigate("Login")},
-// ]
-// )}
-
 const InitialScreen = ({navigation}: InitialScreenProps) => {
-  const {data, initial, openClosedInsertImageInfo, openClosedPerfilinfo, modalFuctionInsertImageInfo, modalFuctionPerfilInfo} = UseInitialScreen();
+  const {
+    data,
+    initial,
+    openClosedInsertImageInfo,
+    openClosedPerfilinfo,
+    modalFuctionInsertImageInfo,
+    modalFuctionPerfilInfo,
+    handleLogout
+  } = UseInitialScreen(navigation);
 
   return (
     <View>
@@ -52,7 +54,8 @@ const InitialScreen = ({navigation}: InitialScreenProps) => {
       <ModalComponentPerfilInfo
         openClosed={openClosedPerfilinfo}
         dismiss={() => navigation.navigate('InitialScreen')}
-        route={() => modalFuctionPerfilInfo(false)}
+        onPress={() => modalFuctionPerfilInfo(false)}
+        handleLogout = {handleLogout}
         data={data}
         text={""}
       />

@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, FlatList, StyleSheet} from 'react-native';
+import {View, Text} from 'react-native';
 import styles from './styles';
 import { NOME_PERFIL_INFO, EMAIL_PERFIL_INFO } from '../../../../resources/values/strings';
 

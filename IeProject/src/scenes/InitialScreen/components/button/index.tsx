@@ -4,23 +4,14 @@ import styles from "./styles";
 
 interface ButtonComponentProps {
     text: string;
-    onPress?: () => void;
-    route?: any;
+    onPress: () => void;
     color: string;
     width: number;
     height: number;
     borderColor: string;
 }
 
-const ButtonComponent = (props: ButtonComponentProps) => {
-  const handlePress = () => {
-    if (props.onPress) {
-      props.onPress();
-    }
-    if (props.route) {
-      props.route();
-    }
-  };
+  const ButtonComponent = (props: ButtonComponentProps) => {
 
   return (
     <View style={styles.buttonComponent}>
@@ -33,7 +24,7 @@ const ButtonComponent = (props: ButtonComponentProps) => {
               borderColor: props.borderColor 
             }
           ]}
-          onPress={handlePress}
+          onPress={props.onPress}
           >
           <Text style={styles.buttonComponentText}>{props.text}</Text>
         </TouchableOpacity>

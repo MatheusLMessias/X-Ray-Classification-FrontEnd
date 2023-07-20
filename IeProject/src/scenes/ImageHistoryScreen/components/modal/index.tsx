@@ -2,7 +2,10 @@ import React from 'react';
 import {View, Text, TouchableOpacity, Modal, Image} from 'react-native';
 import styles from './styles';
 import ImageInfoList from '../imageInfoList';
-import { TITULO_DIAGNOSTICO, TITULO_MODAL } from '../../../../resources/values/strings';
+import {
+  TITULO_DIAGNOSTICO,
+  TITULO_MODAL,
+} from '../../../../resources/values/strings';
 
 interface ModalProps {
   openClosed: boolean;

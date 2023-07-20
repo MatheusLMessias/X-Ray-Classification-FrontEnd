@@ -1,10 +1,13 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 import styles from './styles';
-import { NOME_PERFIL_INFO, EMAIL_PERFIL_INFO } from '../../../../resources/values/strings';
+import {
+  NOME_PERFIL_INFO,
+  EMAIL_PERFIL_INFO,
+} from '../../../../resources/values/strings';
 
 interface PerfilInfoDataProps {
-  data: any
+  data: any;
 }
 
 const PerfilInfoData = (props: PerfilInfoDataProps) => {

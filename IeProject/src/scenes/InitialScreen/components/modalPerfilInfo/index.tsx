@@ -1,11 +1,11 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, Modal, Image, Alert } from 'react-native';
+import {View, Text, TouchableOpacity, Modal, Image, Alert} from 'react-native';
 import styles from './styles';
 import PerfilInfoData from '../perfilInfoData';
-import { TITULO_PERFIL_INFO } from '../../../../resources/values/strings';
+import {TITULO_PERFIL_INFO} from '../../../../resources/values/strings';
 import ButtonComponent from '../button';
-import { useNavigation } from '@react-navigation/native';
-import handleLogout from '../../hooks/useInitialScreen'
+import {useNavigation} from '@react-navigation/native';
+import handleLogout from '../../hooks/useInitialScreen';
 
 interface ModalProps {
   handleLogout: () => void;
@@ -17,19 +17,19 @@ interface ModalProps {
 }
 
 const ModalComponentPerfilInfo = (props: ModalProps) => {
-
   return (
     <View>
       <Modal
         animationType="slide"
         transparent={true}
         visible={props.openClosed}
-        onDismiss={props.dismiss}
-      >
+        onDismiss={props.dismiss}>
         <View style={styles.modal}>
           <View style={styles.modalView}>
             <View style={styles.header}>
-              <TouchableOpacity style={styles.buttonHeader} onPress={props.onPress}>
+              <TouchableOpacity
+                style={styles.buttonHeader}
+                onPress={props.onPress}>
                 <Image
                   style={styles.image}
                   source={require('../../../../img/close.png')}

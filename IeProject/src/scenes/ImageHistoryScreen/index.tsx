@@ -16,7 +16,10 @@ const ImageHistoryScreen = ({navigation}: ImageHistoryScreenProps) => {
         route={() => navigation.navigate('InitialScreen')}
         name={HEADER_TELA_HISTORICO_IMAGENS}
       />
-      <Button title="Teste Card antes das Imagens" onPress={() => modalFuction(true)} />
+      <Button
+        title="Teste Card antes das Imagens"
+        onPress={() => modalFuction(true)}
+      />
       <ModalComponent
         openClosed={openClosed}
         dismiss={() => navigation.navigate('InitialScreen')}

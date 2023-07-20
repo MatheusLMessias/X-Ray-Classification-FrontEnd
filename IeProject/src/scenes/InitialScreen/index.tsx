@@ -23,7 +23,7 @@ const InitialScreen = ({navigation}: InitialScreenProps) => {
     openClosedPerfilinfo,
     modalFuctionInsertImageInfo,
     modalFuctionPerfilInfo,
-    handleLogout
+    handleLogout,
   } = UseInitialScreen(navigation);
 
   return (
@@ -38,7 +38,7 @@ const InitialScreen = ({navigation}: InitialScreenProps) => {
       </View>
       <View style={styles.containerButton}>
         <MainButton
-          route={() => Alert.alert("Tela de Tirar Foto")}
+          route={() => Alert.alert('Tela de Tirar Foto')}
           text="Tirar Foto"
         />
         <MainButton
@@ -55,9 +55,9 @@ const InitialScreen = ({navigation}: InitialScreenProps) => {
         openClosed={openClosedPerfilinfo}
         dismiss={() => navigation.navigate('InitialScreen')}
         onPress={() => modalFuctionPerfilInfo(false)}
-        handleLogout = {handleLogout}
+        handleLogout={handleLogout}
         data={data}
-        text={""}
+        text={''}
       />
 
       <ModalComponentInsertImageInfo
@@ -65,7 +65,7 @@ const InitialScreen = ({navigation}: InitialScreenProps) => {
         dismiss={() => navigation.navigate('InitialScreen')}
         route={() => modalFuctionInsertImageInfo(false)}
         data={data}
-        text={""}
+        text={''}
       />
     </View>
   );

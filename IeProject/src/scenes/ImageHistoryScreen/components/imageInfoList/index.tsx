@@ -1,7 +1,12 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 import styles from './styles';
-import { DATA_LIST, IDADE_LIST, PACIENTE_LIST, RAIOX_LIST } from '../../../../resources/values/strings';
+import {
+  DATA_LIST,
+  IDADE_LIST,
+  PACIENTE_LIST,
+  RAIOX_LIST,
+} from '../../../../resources/values/strings';
 
 interface ImageInfoListProps {
   data: any;

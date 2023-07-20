@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, TouchableOpacity, Modal, Image} from 'react-native';
 import styles from './styles';
 import InsertImageInfo from '../insertImageInfo';
-import { TITULO_INSERT_IMAGE_INFO } from '../../../../resources/values/strings';
+import {TITULO_INSERT_IMAGE_INFO} from '../../../../resources/values/strings';
 import ButtonComponent from '../button';
 
 interface ModalInsertImageInfoProps {
@@ -41,10 +41,10 @@ const ModalComponentInsertImageInfo = (props: ModalInsertImageInfoProps) => {
             <Text style={styles.textList}>{props.text}</Text>
             <ButtonComponent
               text={'Salvar'}
-              color='#688591'
+              color="#688591"
               width={100}
               height={40}
-              borderColor='#688591' 
+              borderColor="#688591"
               onPress={props.route}
             />
           </View>

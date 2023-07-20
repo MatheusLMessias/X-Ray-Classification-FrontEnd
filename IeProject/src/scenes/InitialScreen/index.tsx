@@ -38,10 +38,6 @@ const InitialScreen = ({navigation}: InitialScreenProps) => {
       </View>
       <View style={styles.containerButton}>
         <MainButton
-          route={() => Alert.alert("Tela de Tirar Foto")}
-          text="Tirar Foto"
-        />
-        <MainButton
           route={() => modalFuctionInsertImageInfo(true)}
           text="Inserir Foto"
         />

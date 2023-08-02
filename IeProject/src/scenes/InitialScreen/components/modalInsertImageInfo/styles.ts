@@ -55,6 +55,11 @@ const styles = StyleSheet.create({
   textList: {
     marginLeft: 30,
   },
+  button: {
+    justifyContent: 'space-around',
+    flexDirection: 'row',
+    alignItems: 'center',
+  }
 });
 
 export default styles;

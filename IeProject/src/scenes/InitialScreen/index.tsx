@@ -24,6 +24,7 @@ const InitialScreen = ({navigation}: InitialScreenProps) => {
     modalFuctionInsertImageInfo,
     modalFuctionPerfilInfo,
     handleLogout,
+    imageInsert
   } = UseInitialScreen(navigation);
 
   return (
@@ -60,6 +61,7 @@ const InitialScreen = ({navigation}: InitialScreenProps) => {
         openClosed={openClosedInsertImageInfo}
         dismiss={() => navigation.navigate('InitialScreen')}
         route={() => modalFuctionInsertImageInfo(false)}
+        imageInsertFunction={imageInsert}
         data={data}
         text={''}
       />

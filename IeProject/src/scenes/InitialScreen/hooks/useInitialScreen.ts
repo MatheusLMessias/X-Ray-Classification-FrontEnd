@@ -15,6 +15,10 @@ const useInitialScreen = (navigation: any) => {
   const [patient, setPatient] = useState<String>('');
   const [age, setAge] = useState<String>('');
 
+  const imageInsert = (data: boolean) => {
+    Alert.alert('Teste button')
+  };
+
   const modalFuctionInsertImageInfo = (data: boolean) => {
     if (data == true) {
       setOpenClosedInsertImageInfo(true);
@@ -51,7 +55,7 @@ const useInitialScreen = (navigation: any) => {
     modalFuctionInsertImageInfo,
     modalFuctionPerfilInfo,
     handleLogout,
-
+    imageInsert,
     raioxName,
     date,
     patient,

@@ -11,6 +11,7 @@ interface ModalInsertImageInfoProps {
   route: any;
   data: Object;
   text: String;
+  imageInsertFunction: any;
 }
 
 const ModalComponentInsertImageInfo = (props: ModalInsertImageInfoProps) => {
@@ -39,14 +40,25 @@ const ModalComponentInsertImageInfo = (props: ModalInsertImageInfoProps) => {
             </View>
             <InsertImageInfo data={props.data} />
             <Text style={styles.textList}>{props.text}</Text>
+            <View style={styles.button}>
             <ButtonComponent
-              text={'Salvar'}
+              text={'Inserir Raio X'}
               color="#688591"
-              width={100}
+              width={130}
+              height={40}
+              borderColor="#688591"
+              onPress={props.imageInsertFunction}
+            />
+            <ButtonComponent
+              text={'Salvar e compilar'}
+              color="#688591"
+              width={130}
               height={40}
               borderColor="#688591"
               onPress={props.route}
             />
+            </View>
+
           </View>
         </View>
       </Modal>

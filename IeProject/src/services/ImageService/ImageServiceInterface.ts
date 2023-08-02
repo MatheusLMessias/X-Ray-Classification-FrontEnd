@@ -1,3 +1,3 @@
 export default interface ImageServiceInterface {
-    getImage(receipt: string): Promise<any>;
+    getImage(image: any): any;
   }

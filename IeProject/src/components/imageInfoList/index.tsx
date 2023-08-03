@@ -6,7 +6,7 @@ import {
   IDADE_LIST,
   PACIENTE_LIST,
   RAIOX_LIST,
-} from '../../../../resources/values/strings';
+} from '../../resources/values/strings';
 
 interface ImageInfoListProps {
   data: any;

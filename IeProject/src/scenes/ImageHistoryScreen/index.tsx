@@ -1,7 +1,7 @@
 import {Button, View} from 'react-native';
 import {HEADER_TELA_HISTORICO_IMAGENS} from '../../resources/values/strings';
 import Header from '../../components/header';
-import ModalComponent from './components/modal';
+import ModalComponent from '../../components/modal';
 import useImageHistoryScreen from './hooks/useImageHistoryScreen';
 import React from 'react';
 
@@ -10,7 +10,7 @@ interface ImageHistoryScreenProps {
 }
 
 const ImageHistoryScreen = ({navigation}: ImageHistoryScreenProps) => {
-  const {data, teste, openClosed, text, modalFuction} = useImageHistoryScreen();
+  const {data, openClosed, text, modalFuction} = useImageHistoryScreen();
   return (
     <View>
       <Header

@@ -1,11 +1,9 @@
 import React from 'react';
-import {View, Text, TouchableOpacity, Modal, Image, Alert} from 'react-native';
+import {View, Text, TouchableOpacity, Modal, Image} from 'react-native';
 import styles from './styles';
 import PerfilInfoData from '../perfilInfoData';
 import {TITULO_PERFIL_INFO} from '../../../../resources/values/strings';
 import ButtonComponent from '../button';
-import {useNavigation} from '@react-navigation/native';
-import handleLogout from '../../hooks/useInitialScreen';
 
 interface ModalProps {
   handleLogout: () => void;

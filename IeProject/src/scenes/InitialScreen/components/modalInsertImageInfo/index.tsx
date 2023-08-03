@@ -12,6 +12,15 @@ interface ModalInsertImageInfoProps {
   data: Object;
   text: String;
   imageInsertFunction: any;
+  saveRaioxFunction: any;
+  raioxName: String;
+  date: String;
+  patient: String;
+  age: String;
+  setRaioxName: any;
+  setDate: any;
+  setPatient: any;
+  setAge: any;
 }
 
 const ModalComponentInsertImageInfo = (props: ModalInsertImageInfoProps) => {
@@ -38,7 +47,16 @@ const ModalComponentInsertImageInfo = (props: ModalInsertImageInfoProps) => {
                 {TITULO_INSERT_IMAGE_INFO}
               </Text>
             </View>
-            <InsertImageInfo data={props.data} />
+            <InsertImageInfo 
+                raioxName={props.raioxName}
+                date={props.date}
+                patient={props.patient}
+                age={props.age}
+                setRaioxName={props.setRaioxName}
+                setDate={props.setDate}
+                setPatient={props.setPatient}
+                setAge={props.setAge}
+             />
             <Text style={styles.textList}>{props.text}</Text>
             <View style={styles.button}>
             <ButtonComponent
@@ -55,10 +73,9 @@ const ModalComponentInsertImageInfo = (props: ModalInsertImageInfoProps) => {
               width={130}
               height={40}
               borderColor="#688591"
-              onPress={props.route}
+              onPress={props.saveRaioxFunction}
             />
             </View>
-
           </View>
         </View>
       </Modal>

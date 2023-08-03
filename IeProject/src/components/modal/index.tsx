@@ -5,14 +5,14 @@ import ImageInfoList from '../imageInfoList';
 import {
   TITULO_DIAGNOSTICO,
   TITULO_MODAL,
-} from '../../../../resources/values/strings';
+} from '../../resources/values/strings';
 
 interface ModalProps {
   openClosed: boolean;
   dismiss: any;
   route: any;
-  data: Object;
-  text: String;
+  data?: Object;
+  text?: String;
 }
 
 const ModalComponent = (props: ModalProps) => {
@@ -31,7 +31,7 @@ const ModalComponent = (props: ModalProps) => {
                 onPress={props.route}>
                 <Image
                   style={styles.image}
-                  source={require('../../../../img/close.png')}
+                  source={require('../../img/close.png')}
                   tintColor="#688591"
                 />
               </TouchableOpacity>

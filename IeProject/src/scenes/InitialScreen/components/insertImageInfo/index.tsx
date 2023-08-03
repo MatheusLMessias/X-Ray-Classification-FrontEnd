@@ -12,20 +12,17 @@ import useInitialScreen from '../../hooks/useInitialScreen';
 import ButtonComponent from '../button';
 
 interface InsertImageInfoProps {
-  data: any;
+  raioxName: String;
+  date: String;
+  patient: String;
+  age: String;
+  setRaioxName: any;
+  setDate: any;
+  setPatient: any;
+  setAge: any;
 }
 
 const InsertImageInfo = (props: InsertImageInfoProps) => {
-  const {
-    raioxName,
-    date,
-    patient,
-    age,
-    setRaioxName,
-    setDate,
-    setPatient,
-    setAge,
-  } = useInitialScreen();
 
   return (
     <View style={styles.containerList}>
@@ -34,32 +31,32 @@ const InsertImageInfo = (props: InsertImageInfoProps) => {
         placeholder="Digite o nome do raio-x"
         type="default"
         secure={false}
-        data={raioxName}
-        setData={setRaioxName}
+        data={props.raioxName}
+        setData={props.setRaioxName}
       />
       <InputInsertComponent
         label={DATA_INSERT_IMAGE_INFO}
         placeholder="Digite a data"
         type="default"
         secure={false}
-        data={date}
-        setData={setDate}
+        data={props.date}
+        setData={props.setDate}
       />
       <InputInsertComponent
         label={PACIENTE_INSERT_IMAGE_INFO}
         placeholder="Digite a identificação do paciente"
         type="default"
         secure={false}
-        data={patient}
-        setData={setPatient}
+        data={props.patient}
+        setData={props.setPatient}
       />
       <InputInsertComponent
         label={IDADE_INSERT_IMAGE_INFO}
         placeholder="Digite a idade"
         type="default"
         secure={false}
-        data={age}
-        setData={setAge}
+        data={props.age}
+        setData={props.setAge}
       />
     </View>
   );

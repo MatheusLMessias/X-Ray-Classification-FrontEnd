@@ -1,8 +1,10 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import {infoPerfil} from '../../../resources/mocks/infoPerfilMocks';
 import {Alert} from 'react-native';
 import DocumentPicker from 'react-native-document-picker';
 import RNFetchBlob from 'rn-fetch-blob';
+import ImageClassification from '../../../models/ImageClassification';
+import {imageService} from '../../../services';
 
 const useInitialScreen = (navigation: any) => {
   const [data, useData] = useState(infoPerfil);
@@ -16,16 +18,23 @@ const useInitialScreen = (navigation: any) => {
   const [date, setDate] = useState<String>('');
   const [patient, setPatient] = useState<String>('');
   const [age, setAge] = useState<String>('');
+  const [insertInfos, setInsertInfos] = useState<any>({});
   const [imageBase64, setImageBase64] = useState<any>();
+  const [infoPatient, setInfoPatient] = useState<any>();
 
+  useEffect(() => {
+    setInsertInfos({raioxName: raioxName, date: date, patient: patient, age: age});
+    console.log(infoPatient)
+  }, [raioxName, date, patient, age, infoPatient, imageBase64]);
+  
   const imageInsert = async () => {
     try {
       const image = await DocumentPicker.pick();
+      setImageBase64(image);
       RNFetchBlob.fs
         .readFile(image[0].uri, 'base64')
         .then(data => {
           setImageBase64(data);
-          //console.log('Aqui ' + data); //teste
         })
         .catch(err => {
           Alert.alert('Error ao inserir imagem');
@@ -35,7 +44,40 @@ const useInitialScreen = (navigation: any) => {
         Alert.alert('É obrigatório a seleção de uma imagem, tente novamente');
       }
     }
-    console.log('testeeee  '+imageBase64)
+  };
+
+  const saveRaiox = () => {
+    postInfoRaioX();
+    if(infoPatient){
+      modalFuctionInsertImageInfo(false)
+      Alert.alert('Raio X inserido com sucesso', 'Deseja visualizar o resultado?', [
+        {text: 'Não', onPress: () => {}, style: 'cancel'},
+        {
+          text: 'Sair',
+          onPress: () => navigation.navigate('LoginScreen'),
+          style: 'destructive',
+        },
+      ]);
+    }else{
+      Alert.alert('Erro ao salvar as informações do Raio-X')
+    }
+  }
+
+  const postInfoRaioX = async () => {
+    try {
+      console.log('postInfo' + imageBase64[0].uri + insertInfos.raioxName + insertInfos.date + insertInfos.patient + insertInfos.age)
+      const response: ImageClassification = await imageService.getImage({
+        info: setInfoPatient,
+        username: imageBase64,
+        age: insertInfos.raioxName,
+        date: insertInfos.date,
+        name: insertInfos.patient,
+        image: insertInfos.age,
+      });
+      return response;
+    } catch (error) {
+      throw error;
+    }
   };
 
   const modalFuctionInsertImageInfo = (data: boolean) => {
@@ -81,6 +123,7 @@ const useInitialScreen = (navigation: any) => {
     age,
     setRaioxName,
     setDate,
+    saveRaiox,
     setPatient,
     setAge,
   };

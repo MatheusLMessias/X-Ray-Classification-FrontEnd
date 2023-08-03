@@ -10,6 +10,7 @@ import UseInitialScreen from './hooks/useInitialScreen';
 import ModalComponentInsertImageInfo from './components/modalInsertImageInfo';
 
 import ModalComponentPerfilInfo from './components/modalPerfilInfo';
+import ModalComponent from '../../components/modal';
 
 interface InitialScreenProps {
   navigation: any;
@@ -21,10 +22,19 @@ const InitialScreen = ({navigation}: InitialScreenProps) => {
     initial,
     openClosedInsertImageInfo,
     openClosedPerfilinfo,
+    raioxName,
+    date,
+    patient,
+    age,
+    setRaioxName,
+    setDate,
+    setPatient,
+    setAge,
     modalFuctionInsertImageInfo,
     modalFuctionPerfilInfo,
     handleLogout,
-    imageInsert
+    imageInsert,
+    saveRaiox
   } = UseInitialScreen(navigation);
 
   return (
@@ -62,8 +72,17 @@ const InitialScreen = ({navigation}: InitialScreenProps) => {
         dismiss={() => navigation.navigate('InitialScreen')}
         route={() => modalFuctionInsertImageInfo(false)}
         imageInsertFunction={imageInsert}
+        saveRaioxFunction={saveRaiox}
         data={data}
         text={''}
+        raioxName={raioxName}
+        date={date}
+        patient={patient}
+        age={age}
+        setRaioxName={setRaioxName}
+        setDate={setDate}
+        setPatient={setPatient}
+        setAge={setAge}
       />
     </View>
   );

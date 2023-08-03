@@ -24,10 +24,13 @@ const InitialScreen = ({navigation}: InitialScreenProps) => {
     openClosedPerfilinfo,
     raioxName,
     date,
+    infoPatient,
     patient,
+    openClosed,
     age,
     setRaioxName,
     setDate,
+    modalFuction,
     setPatient,
     setAge,
     modalFuctionInsertImageInfo,
@@ -83,6 +86,14 @@ const InitialScreen = ({navigation}: InitialScreenProps) => {
         setDate={setDate}
         setPatient={setPatient}
         setAge={setAge}
+      />
+
+      <ModalComponent
+        openClosed={openClosed}
+        dismiss={() => navigation.navigate('InitialScreen')}
+        route={() => modalFuction(false)}
+        data={infoPatient}
+        text={infoPatient.texto}
       />
     </View>
   );

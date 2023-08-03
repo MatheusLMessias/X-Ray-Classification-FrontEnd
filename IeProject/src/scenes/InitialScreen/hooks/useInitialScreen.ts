@@ -5,6 +5,7 @@ import DocumentPicker from 'react-native-document-picker';
 import RNFetchBlob from 'rn-fetch-blob';
 import ImageClassification from '../../../models/ImageClassification';
 import {imageService} from '../../../services';
+import { imagensDescription, imagensInfos } from '../../../resources/mocks/imagesMocks';
 
 const useInitialScreen = (navigation: any) => {
   const [data, useData] = useState(infoPerfil);
@@ -13,20 +14,20 @@ const useInitialScreen = (navigation: any) => {
     useState<boolean>(false);
   const [openClosedInsertImageInfo, setOpenClosedInsertImageInfo] =
     useState<boolean>(false);
-
+    const [openClosed, setOpenClosed] = useState<boolean>(false);
   const [raioxName, setRaioxName] = useState<String>('');
   const [date, setDate] = useState<String>('');
   const [patient, setPatient] = useState<String>('');
   const [age, setAge] = useState<String>('');
   const [insertInfos, setInsertInfos] = useState<any>({});
   const [imageBase64, setImageBase64] = useState<any>();
-  const [infoPatient, setInfoPatient] = useState<any>();
+  const [infoPatient, setInfoPatient] = useState(imagensInfos);
 
   useEffect(() => {
     setInsertInfos({raioxName: raioxName, date: date, patient: patient, age: age});
     console.log(infoPatient)
   }, [raioxName, date, patient, age, infoPatient, imageBase64]);
-  
+
   const imageInsert = async () => {
     try {
       const image = await DocumentPicker.pick();
@@ -50,11 +51,11 @@ const useInitialScreen = (navigation: any) => {
     postInfoRaioX();
     if(infoPatient){
       modalFuctionInsertImageInfo(false)
-      Alert.alert('Raio X inserido com sucesso', 'Deseja visualizar o resultado?', [
+      Alert.alert('Raio X inserido com sucesso', 'Deseja visualizar o resultado? Você também pode visualizar pela tela de histórico de imagens', [
         {text: 'Não', onPress: () => {}, style: 'cancel'},
         {
-          text: 'Sair',
-          onPress: () => navigation.navigate('LoginScreen'),
+          text: 'Visualizar',
+          onPress: () => modalFuction(true),
           style: 'destructive',
         },
       ]);
@@ -65,9 +66,9 @@ const useInitialScreen = (navigation: any) => {
 
   const postInfoRaioX = async () => {
     try {
-      console.log('postInfo' + imageBase64[0].uri + insertInfos.raioxName + insertInfos.date + insertInfos.patient + insertInfos.age)
+      console.log('postInfo ' + imageBase64[0].uri + insertInfos.raioxName + insertInfos.date + insertInfos.patient + insertInfos.age)
       const response: ImageClassification = await imageService.getImage({
-        info: setInfoPatient,
+        //info: setInfoPatient,
         username: imageBase64,
         age: insertInfos.raioxName,
         date: insertInfos.date,
@@ -77,6 +78,14 @@ const useInitialScreen = (navigation: any) => {
       return response;
     } catch (error) {
       throw error;
+    }
+  };
+
+  const modalFuction = async (data: boolean) => {
+    if (data == true) {
+      setOpenClosed(true);
+    } else {
+      setOpenClosed(false);
     }
   };
 
@@ -109,18 +118,22 @@ const useInitialScreen = (navigation: any) => {
 
   return {
     data,
-    setInitial,
     initial,
     openClosedPerfilinfo,
     openClosedInsertImageInfo,
+    openClosed,
+    raioxName,
+    infoPatient,
+    date,
+    patient,
+    age,
+    setInitial,
+    setOpenClosed,
     modalFuctionInsertImageInfo,
     modalFuctionPerfilInfo,
     handleLogout,
     imageInsert,
-    raioxName,
-    date,
-    patient,
-    age,
+    modalFuction,
     setRaioxName,
     setDate,
     saveRaiox,

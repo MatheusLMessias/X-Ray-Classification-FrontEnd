@@ -14,7 +14,7 @@ import UseLoginScreen from './hook/UseLoginScreen';
 import ButtonComponent from './components/button';
 
 const LoginScreen = ({navigation}: any) => {
-  const {email, newPassword, setEmail, setNewPassword} = UseLoginScreen();
+  const {email, password, setEmail, setPassword, login} = UseLoginScreen(navigation);
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor="#CEEBF7" barStyle="default" />
@@ -35,8 +35,8 @@ const LoginScreen = ({navigation}: any) => {
             placeholder="Digite uma senha"
             type="default"
             secure={true}
-            data={newPassword}
-            setData={setNewPassword}
+            data={password}
+            setData={setPassword}
           />
 
           <View style={styles.buttonContainer}>
@@ -49,7 +49,7 @@ const LoginScreen = ({navigation}: any) => {
             <View style={styles.buttonContainerLogin}>
               <ButtonComponent
                 text={TITULO_BUTTON_TELA_LOGIN_LOGAR}
-                route={() => navigation.navigate('InitialScreen')}
+                route={login}
               />
             </View>
           </View>

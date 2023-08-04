@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, TouchableOpacity, Modal, Image} from 'react-native';
 import styles from './styles';
 import InsertImageInfo from '../insertImageInfo';
-import { TITULO_INSERT_IMAGE_INFO } from '../../../../resources/values/strings';
+import {TITULO_INSERT_IMAGE_INFO} from '../../../../resources/values/strings';
 import ButtonComponent from '../button';
 
 interface ModalInsertImageInfoProps {
@@ -11,6 +11,16 @@ interface ModalInsertImageInfoProps {
   route: any;
   data: Object;
   text: String;
+  imageInsertFunction: any;
+  saveRaioxFunction: any;
+  raioxName: String;
+  date: String;
+  patient: String;
+  age: String;
+  setRaioxName: any;
+  setDate: any;
+  setPatient: any;
+  setAge: any;
 }
 
 const ModalComponentInsertImageInfo = (props: ModalInsertImageInfoProps) => {
@@ -37,16 +47,35 @@ const ModalComponentInsertImageInfo = (props: ModalInsertImageInfoProps) => {
                 {TITULO_INSERT_IMAGE_INFO}
               </Text>
             </View>
-            <InsertImageInfo data={props.data} />
+            <InsertImageInfo 
+                raioxName={props.raioxName}
+                date={props.date}
+                patient={props.patient}
+                age={props.age}
+                setRaioxName={props.setRaioxName}
+                setDate={props.setDate}
+                setPatient={props.setPatient}
+                setAge={props.setAge}
+             />
             <Text style={styles.textList}>{props.text}</Text>
+            <View style={styles.button}>
             <ButtonComponent
-              text={'Salvar'}
-              color='#688591'
-              width={100}
+              text={'Inserir Raio X'}
+              color="#688591"
+              width={130}
               height={40}
-              borderColor='#688591' 
-              onPress={props.route}
+              borderColor="#688591"
+              onPress={props.imageInsertFunction}
             />
+            <ButtonComponent
+              text={'Salvar e compilar'}
+              color="#688591"
+              width={130}
+              height={40}
+              borderColor="#688591"
+              onPress={props.saveRaioxFunction}
+            />
+            </View>
           </View>
         </View>
       </Modal>

@@ -10,6 +10,7 @@ import UseInitialScreen from './hooks/useInitialScreen';
 import ModalComponentInsertImageInfo from './components/modalInsertImageInfo';
 
 import ModalComponentPerfilInfo from './components/modalPerfilInfo';
+import ModalComponent from '../../components/modal';
 
 interface InitialScreenProps {
   navigation: any;
@@ -21,9 +22,22 @@ const InitialScreen = ({navigation}: InitialScreenProps) => {
     initial,
     openClosedInsertImageInfo,
     openClosedPerfilinfo,
+    raioxName,
+    date,
+    infoPatient,
+    patient,
+    openClosed,
+    age,
+    setRaioxName,
+    setDate,
+    modalFuction,
+    setPatient,
+    setAge,
     modalFuctionInsertImageInfo,
     modalFuctionPerfilInfo,
-    handleLogout
+    handleLogout,
+    imageInsert,
+    saveRaiox
   } = UseInitialScreen(navigation);
 
   return (
@@ -51,17 +65,34 @@ const InitialScreen = ({navigation}: InitialScreenProps) => {
         openClosed={openClosedPerfilinfo}
         dismiss={() => navigation.navigate('InitialScreen')}
         onPress={() => modalFuctionPerfilInfo(false)}
-        handleLogout = {handleLogout}
+        handleLogout={handleLogout}
         data={data}
-        text={""}
+        text={''}
       />
 
       <ModalComponentInsertImageInfo
         openClosed={openClosedInsertImageInfo}
         dismiss={() => navigation.navigate('InitialScreen')}
         route={() => modalFuctionInsertImageInfo(false)}
+        imageInsertFunction={imageInsert}
+        saveRaioxFunction={saveRaiox}
         data={data}
-        text={""}
+        text={''}
+        raioxName={raioxName}
+        date={date}
+        patient={patient}
+        age={age}
+        setRaioxName={setRaioxName}
+        setDate={setDate}
+        setPatient={setPatient}
+        setAge={setAge}
+      />
+
+      <ModalComponent
+        openClosed={openClosed}
+        dismiss={() => navigation.navigate('InitialScreen')}
+        route={() => modalFuction(false)}
+        data={infoPatient}
       />
     </View>
   );

@@ -11,16 +11,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   buttonContainer: {
-      flexDirection: "row",
-      alignItems: "center",
-      justifyContent: 'space-around',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-around',
   },
-
 
   buttonContainerLogin: {
     marginLeft: 20,
   },
-
 
   buttonContainerRegister: {
     marginRight: 20,

@@ -1,5 +1,10 @@
 export default interface ImageClassification {
-    classification: string;
-    hash: string;
-  }
-  
+  age: number;
+  date: String;
+  hash: String;
+  name: String;
+  result: String;
+  user_id: number;
+  username: String;
+  error?: String;
+}

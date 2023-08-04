@@ -11,7 +11,7 @@ interface ModalProps {
   openClosed: boolean;
   dismiss: any;
   route: any;
-  data?: Object;
+  data?: any;
   text?: String;
 }
 
@@ -40,10 +40,6 @@ const ModalComponent = (props: ModalProps) => {
               </Text>
             </View>
             <ImageInfoList data={props.data} />
-            <Text style={styles.titleList} numberOfLines={1}>
-              {TITULO_DIAGNOSTICO}
-            </Text>
-            <Text style={styles.textList}>{props.text}</Text>
           </View>
         </View>
       </Modal>

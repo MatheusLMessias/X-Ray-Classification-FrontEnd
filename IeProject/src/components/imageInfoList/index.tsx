@@ -6,6 +6,7 @@ import {
   IDADE_LIST,
   PACIENTE_LIST,
   RAIOX_LIST,
+  TITULO_DIAGNOSTICO,
 } from '../../resources/values/strings';
 
 interface ImageInfoListProps {
@@ -15,10 +16,14 @@ interface ImageInfoListProps {
 const ImageInfoList = (props: ImageInfoListProps) => {
   return (
     <View style={styles.containerList}>
-      <Text>{`${RAIOX_LIST} ${props.data.nomeRaioX}`}</Text>
-      <Text>{`${DATA_LIST} ${props.data.data}`}</Text>
-      <Text>{`${PACIENTE_LIST} ${props.data.paciente}`}</Text>
-      <Text>{`${IDADE_LIST} ${props.data.idade}`}</Text>
+      <Text>{`${RAIOX_LIST} ${props.data.name}`}</Text>
+      <Text>{`${DATA_LIST} ${props.data.date}`}</Text>
+      <Text>{`${PACIENTE_LIST} ${props.data.username}`}</Text>
+      <Text>{`${IDADE_LIST} ${props.data.age}`}</Text>
+      <Text style={styles.titleList} numberOfLines={1}>
+        {TITULO_DIAGNOSTICO}
+      </Text>
+      <Text style={styles.textList}>{props.data.result}</Text>
     </View>
   );
 };

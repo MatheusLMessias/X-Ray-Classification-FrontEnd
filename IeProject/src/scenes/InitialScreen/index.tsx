@@ -93,7 +93,6 @@ const InitialScreen = ({navigation}: InitialScreenProps) => {
         dismiss={() => navigation.navigate('InitialScreen')}
         route={() => modalFuction(false)}
         data={infoPatient}
-        text={infoPatient.texto}
       />
     </View>
   );

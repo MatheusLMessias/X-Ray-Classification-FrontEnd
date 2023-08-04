@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, FlatList, StyleSheet, TextInput} from 'react-native';
+import {View} from 'react-native';
 import styles from './styles';
 import {
   RAIOX_INSERT_IMAGE_INFO,
@@ -8,8 +8,6 @@ import {
   IDADE_INSERT_IMAGE_INFO,
 } from '../../../../resources/values/strings';
 import InputInsertComponent from '../../components/inputComponent';
-import useInitialScreen from '../../hooks/useInitialScreen';
-import ButtonComponent from '../button';
 
 interface InsertImageInfoProps {
   raioxName: String;
@@ -37,7 +35,7 @@ const InsertImageInfo = (props: InsertImageInfoProps) => {
       <InputInsertComponent
         label={DATA_INSERT_IMAGE_INFO}
         placeholder="Digite a data"
-        type="default"
+        type="phone-pad"
         secure={false}
         data={props.date}
         setData={props.setDate}
@@ -53,7 +51,7 @@ const InsertImageInfo = (props: InsertImageInfoProps) => {
       <InputInsertComponent
         label={IDADE_INSERT_IMAGE_INFO}
         placeholder="Digite a idade"
-        type="default"
+        type="phone-pad"
         secure={false}
         data={props.age}
         setData={props.setAge}

@@ -21,11 +21,10 @@ const useInitialScreen = (navigation: any) => {
   const [age, setAge] = useState<String>('');
   const [insertInfos, setInsertInfos] = useState<any>({});
   const [imageBase64, setImageBase64] = useState<any>();
-  const [infoPatient, setInfoPatient] = useState(imagensInfos);
+  const [infoPatient, setInfoPatient] = useState<ImageClassification>();
 
   useEffect(() => {
     setInsertInfos({raioxName: raioxName, date: date, patient: patient, age: age});
-    console.log(infoPatient)
   }, [raioxName, date, patient, age, infoPatient, imageBase64]);
 
   const imageInsert = async () => {
@@ -49,33 +48,37 @@ const useInitialScreen = (navigation: any) => {
 
   const saveRaiox = () => {
     postInfoRaioX();
+    setTimeout(() => {
     if(infoPatient){
-      modalFuctionInsertImageInfo(false)
-      Alert.alert('Raio X inserido com sucesso', 'Deseja visualizar o resultado? Você também pode visualizar pela tela de histórico de imagens', [
-        {text: 'Não', onPress: () => {}, style: 'cancel'},
-        {
-          text: 'Visualizar',
-          onPress: () => modalFuction(true),
-          style: 'destructive',
-        },
-      ]);
-    }else{
+      if(infoPatient.error){
+        Alert.alert('Error: ' + 'Imagem já classificada anteriormente')
+      } else {
+        modalFuctionInsertImageInfo(false)
+        Alert.alert('Raio X inserido com sucesso', 'Deseja visualizar o resultado? Você também pode visualizar pela tela de histórico de imagens', [
+          {text: 'Não', onPress: () => {}, style: 'cancel'},
+          {
+            text: 'Visualizar',
+            onPress: () => modalFuction(true),
+            style: 'destructive',
+          },
+        ]);
+      }
+    } else {
       Alert.alert('Erro ao salvar as informações do Raio-X')
     }
+    }, 1000);
   }
 
   const postInfoRaioX = async () => {
     try {
-      console.log('postInfo ' + imageBase64[0].uri + insertInfos.raioxName + insertInfos.date + insertInfos.patient + insertInfos.age)
-      const response: ImageClassification = await imageService.getImage({
-        //info: setInfoPatient,
-        username: imageBase64,
-        age: insertInfos.raioxName,
+      await imageService.getImage({
+        info: setInfoPatient,
+        username: insertInfos.raioxName,
+        age: insertInfos.age ,
         date: insertInfos.date,
         name: insertInfos.patient,
-        image: insertInfos.age,
+        image: imageBase64,
       });
-      return response;
     } catch (error) {
       throw error;
     }

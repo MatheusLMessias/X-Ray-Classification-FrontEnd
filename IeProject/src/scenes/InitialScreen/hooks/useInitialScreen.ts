@@ -22,10 +22,26 @@ const useInitialScreen = (navigation: any) => {
   const [insertInfos, setInsertInfos] = useState<any>({});
   const [imageBase64, setImageBase64] = useState<any>();
   const [infoPatient, setInfoPatient] = useState<ImageClassification>();
+  let invalidField = {label: "", invalid: false};
 
   useEffect(() => {
-    setInsertInfos({raioxName: raioxName, date: date, patient: patient, age: age});
-  }, [raioxName, date, patient, age, infoPatient, imageBase64]);
+    setInsertInfos({apelido: raioxName, data: date, paciente: patient, idade: age, imagem: imageBase64});
+  }, [raioxName, date, patient, age, imageBase64]);
+
+  const verifyValues = () => {
+    invalidField.invalid = false;
+    Object.entries(insertInfos).forEach(field => {
+      if (!field[1] && !invalidField.invalid)
+        invalidField = {label: field[0], invalid: true}
+    });
+    if (invalidField.invalid){
+        Alert.alert("Campo inválido", `O campo ${invalidField.label} está vazio!`, [
+        {text: 'Ok', onPress: () => {}, style: 'cancel'},
+      ]);
+      return false
+      } 
+      return true;
+  }
 
   const imageInsert = async () => {
     try {
@@ -46,39 +62,42 @@ const useInitialScreen = (navigation: any) => {
     }
   };
 
-  const saveRaiox = () => {
-    postInfoRaioX();
-    setTimeout(() => {
-    if(infoPatient){
-      if(infoPatient.error){
-        Alert.alert('Error: ' + 'Imagem já classificada anteriormente')
+  const saveRaiox = async () => {
+    const verify = verifyValues();
+    if(verify == true){
+      const response = await postInfoRaioX();
+      if(response){
+        if(response.error){
+          Alert.alert('Error: ' + 'Imagem já classificada anteriormente')
+        } else {
+          setInfoPatient(response)
+          modalFuctionInsertImageInfo(false)
+          Alert.alert('Raio X inserido com sucesso', 'Deseja visualizar o resultado? Você também pode visualizar pela tela de histórico de imagens', [
+            {text: 'Não', onPress: () => {}, style: 'cancel'},
+            {
+              text: 'Visualizar',
+              onPress: () => modalFuction(true),
+              style: 'destructive',
+            },
+          ]);
+        }
       } else {
-        modalFuctionInsertImageInfo(false)
-        Alert.alert('Raio X inserido com sucesso', 'Deseja visualizar o resultado? Você também pode visualizar pela tela de histórico de imagens', [
-          {text: 'Não', onPress: () => {}, style: 'cancel'},
-          {
-            text: 'Visualizar',
-            onPress: () => modalFuction(true),
-            style: 'destructive',
-          },
-        ]);
+        Alert.alert('Erro ao salvar as informações do Raio-X')
       }
-    } else {
-      Alert.alert('Erro ao salvar as informações do Raio-X')
     }
-    }, 1000);
   }
 
   const postInfoRaioX = async () => {
     try {
-      await imageService.getImage({
-        info: setInfoPatient,
-        username: insertInfos.raioxName,
-        age: insertInfos.age ,
-        date: insertInfos.date,
-        name: insertInfos.patient,
+      const response: ImageClassification = await imageService.getImage({
+        username: insertInfos.apelido,
+        age: insertInfos.idade ,
+        date: insertInfos.data,
+        name: insertInfos.paciente,
         image: imageBase64,
       });
+      console.log(response)
+      return response
     } catch (error) {
       throw error;
     }

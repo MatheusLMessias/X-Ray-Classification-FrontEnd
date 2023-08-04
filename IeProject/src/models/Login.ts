@@ -1,5 +1,6 @@
 export default interface Login {
-    email: string;
-    senha: string;
+    message?: String,
+    error?: String
+    user?: any
   }
   

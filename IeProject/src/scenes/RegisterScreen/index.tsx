@@ -11,7 +11,7 @@ import UseRegisterScreen from './hook/UseRegisterScreen';
 import ButtonComponent from './components/button';
 
 const RegisterScreen = ({navigation}: any) => {
-  const {name, newEmail, newPassword, setName, setNewEmail, setNewPassword} =
+  const {name, newEmail, newPassword, setName, setNewEmail, setNewPassword, register} =
     UseRegisterScreen();
 
   return (
@@ -50,7 +50,7 @@ const RegisterScreen = ({navigation}: any) => {
 
           <ButtonComponent
             text={TITULO_BUTTON_TELA_REGISTRO}
-            route={() => navigation.navigate('LoginScreen')}
+            route={register}
           />
         </View>
       </ScrollView>

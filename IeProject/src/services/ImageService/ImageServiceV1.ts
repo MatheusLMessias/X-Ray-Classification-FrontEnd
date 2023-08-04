@@ -2,13 +2,13 @@ import ImageServiceInterface from './ImageServiceInterface';
 
 export default class ImageServiceV1 implements ImageServiceInterface {
   async getImage(props: any) {
-    fetch('http://10.0.2.2:5000/image/classify', {
+    const response = fetch('http://10.0.2.2:5000/image/classify', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        user_id: 82,
+        user_id: 18,
         username: props.username,
         age: props.age,
         name: props.name,
@@ -18,8 +18,9 @@ export default class ImageServiceV1 implements ImageServiceInterface {
     })
       .then(res => res.json())
       .then(data => {
-        props.info(data);
+        return data;
       })
       .catch(error => console.warn(error));
+      return response
   }
 }

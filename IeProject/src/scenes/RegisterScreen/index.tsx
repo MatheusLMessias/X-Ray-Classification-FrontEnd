@@ -12,7 +12,7 @@ import ButtonComponent from './components/button';
 
 const RegisterScreen = ({navigation}: any) => {
   const {name, newEmail, newPassword, setName, setNewEmail, setNewPassword, register} =
-    UseRegisterScreen();
+    UseRegisterScreen(navigation);
 
   return (
     <View style={styles.container}>

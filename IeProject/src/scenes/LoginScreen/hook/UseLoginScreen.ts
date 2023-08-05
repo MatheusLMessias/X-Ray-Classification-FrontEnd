@@ -34,7 +34,6 @@ const UseLoginScreen = (navigation: any) => {
         email: insertInfos.email,
         senha: insertInfos.senha
       });
-      console.log(response)
       return response
     } catch (error) {
       throw error;
@@ -50,7 +49,7 @@ const UseLoginScreen = (navigation: any) => {
           Alert.alert('Error: ' + response.error)
         } else {
           Alert.alert('Login efetuado com sucesso', 'Entre com email e senha na tela de login', [
-            {text: 'OK', onPress: () => navigation.navigate('InitialScreen'), style: 'cancel'}
+            {text: 'OK', onPress: () => navigation.navigate('InitialScreen', {response: response}), style: 'cancel'}
           ]);
         }
       }}

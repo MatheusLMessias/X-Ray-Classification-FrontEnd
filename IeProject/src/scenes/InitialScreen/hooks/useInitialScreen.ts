@@ -90,7 +90,8 @@ const useInitialScreen = (navigation: any) => {
 
   const postInfoRaioX = async () => {
     try {
-      const response: ImageClassification = await imageService.getImage({
+      const response: ImageClassification = await imageService.postImage({
+        user_id: userInfo.response.user.user_id,
         username: insertInfos.apelido,
         age: insertInfos.idade ,
         date: insertInfos.data,

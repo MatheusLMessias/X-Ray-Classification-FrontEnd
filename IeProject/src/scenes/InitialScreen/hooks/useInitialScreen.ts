@@ -58,7 +58,7 @@ const useInitialScreen = (navigation: any) => {
         });
     } catch (err) {
       if (DocumentPicker.isCancel(err)) {
-        Alert.alert('É obrigatório a seleção de uma imagem, tente novamente');
+        Alert.alert('É obrigatório a seleção de uma imagem');
       }
     }
   };

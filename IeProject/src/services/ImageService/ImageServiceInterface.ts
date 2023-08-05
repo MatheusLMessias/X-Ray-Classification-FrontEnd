@@ -1,3 +1,4 @@
 export default interface ImageServiceInterface {
-  postImage(image: any): any;
+  postImage(props: any): any;
+  historyImage(props: any): any;
   }

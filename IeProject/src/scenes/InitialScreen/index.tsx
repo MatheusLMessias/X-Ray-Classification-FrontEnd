@@ -57,7 +57,7 @@ const InitialScreen = ({navigation}: InitialScreenProps) => {
           text="Inserir Foto"
         />
         <MainButton
-          route={() => navigation.navigate('ImageHistoryScreen')}
+          route={() => navigation.navigate('ImageHistoryScreen', {userInfo: userInfo})}
           text="Histórico de Imagens"
         />
       </View>

@@ -10,7 +10,7 @@ interface ImageHistoryScreenProps {
 }
 
 const ImageHistoryScreen = ({navigation}: ImageHistoryScreenProps) => {
-  const {data, openClosed, text, modalFuction} = useImageHistoryScreen();
+  const {data, openClosed, text, modalFuction} = useImageHistoryScreen(navigation);
   return (
     <View>
       <Header

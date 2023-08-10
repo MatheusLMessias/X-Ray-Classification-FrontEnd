@@ -9,8 +9,8 @@ const styles = StyleSheet.create({
   },
   
   titleList: {
-    marginTop: 10,
-    fontSize: 18,
+    marginTop: 2,
+    fontSize: 16,
     fontWeight: '500',
     color: '#688591',
   },

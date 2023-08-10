@@ -34,7 +34,6 @@ const UseLoginScreen = (navigation: any) => {
         email: insertInfos.email,
         senha: insertInfos.senha
       });
-      console.log(response)
       return response
     } catch (error) {
       throw error;
@@ -49,8 +48,8 @@ const UseLoginScreen = (navigation: any) => {
         if(response.error){
           Alert.alert('Error: ' + response.error)
         } else {
-          Alert.alert('Login efetuado com sucesso', 'Entre com email e senha na tela de login', [
-            {text: 'OK', onPress: () => navigation.navigate('InitialScreen'), style: 'cancel'}
+          Alert.alert('Login efetuado com sucesso', 'Usufrua consciente do app X-Ray', [
+            {text: 'OK', onPress: () => navigation.navigate('InitialScreen', {response: response}), style: 'cancel'}
           ]);
         }
       }}

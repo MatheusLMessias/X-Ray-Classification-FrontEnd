@@ -9,7 +9,7 @@ import {
 
 interface ModalProps {
   openClosed: boolean;
-  dismiss: any;
+  dismiss?: any;
   route: any;
   data?: any;
   text?: String;

@@ -5,7 +5,7 @@ import DocumentPicker from 'react-native-document-picker';
 import RNFetchBlob from 'rn-fetch-blob';
 import ImageClassification from '../../../models/ImageClassification';
 import {imageService} from '../../../services';
-import { imagensDescription, imagensInfos } from '../../../resources/mocks/imagesMocks';
+import { useRoute } from '@react-navigation/native';
 
 const useInitialScreen = (navigation: any) => {
   const [data, useData] = useState(infoPerfil);
@@ -22,6 +22,7 @@ const useInitialScreen = (navigation: any) => {
   const [insertInfos, setInsertInfos] = useState<any>({});
   const [imageBase64, setImageBase64] = useState<any>();
   const [infoPatient, setInfoPatient] = useState<ImageClassification>();
+  const [userInfo, setUserInfo] = useState<any>(useRoute().params);
   let invalidField = {label: "", invalid: false};
 
   useEffect(() => {
@@ -57,7 +58,7 @@ const useInitialScreen = (navigation: any) => {
         });
     } catch (err) {
       if (DocumentPicker.isCancel(err)) {
-        Alert.alert('É obrigatório a seleção de uma imagem, tente novamente');
+        Alert.alert('É obrigatório a seleção de uma imagem');
       }
     }
   };
@@ -89,14 +90,14 @@ const useInitialScreen = (navigation: any) => {
 
   const postInfoRaioX = async () => {
     try {
-      const response: ImageClassification = await imageService.getImage({
+      const response: ImageClassification = await imageService.postImage({
+        user_id: userInfo.response.user.user_id,
         username: insertInfos.apelido,
         age: insertInfos.idade ,
         date: insertInfos.data,
         name: insertInfos.paciente,
         image: imageBase64,
       });
-      console.log(response)
       return response
     } catch (error) {
       throw error;
@@ -149,6 +150,7 @@ const useInitialScreen = (navigation: any) => {
     date,
     patient,
     age,
+    userInfo,
     setInitial,
     setOpenClosed,
     modalFuctionInsertImageInfo,

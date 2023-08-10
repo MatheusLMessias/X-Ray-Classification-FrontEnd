@@ -28,6 +28,7 @@ const InitialScreen = ({navigation}: InitialScreenProps) => {
     patient,
     openClosed,
     age,
+    userInfo,
     setRaioxName,
     setDate,
     modalFuction,
@@ -45,10 +46,10 @@ const InitialScreen = ({navigation}: InitialScreenProps) => {
       <HeaderInitialScreen
         initialScreen={initial}
         route={() => modalFuctionPerfilInfo(true)}
-        name={'Olá, fulano'}
+        name={`Olá, ${userInfo.response.user.nome}`}
       />
       <View>
-        <TextComponent text={TEXTO_BOAS_VINDAS_TELA_INICIAL} />
+        <TextComponent text={`Boas vindas ${userInfo.response.user.nome} ${TEXTO_BOAS_VINDAS_TELA_INICIAL}`} />
       </View>
       <View style={styles.containerButton}>
         <MainButton
@@ -56,7 +57,7 @@ const InitialScreen = ({navigation}: InitialScreenProps) => {
           text="Inserir Foto"
         />
         <MainButton
-          route={() => navigation.navigate('ImageHistoryScreen')}
+          route={() => navigation.navigate('ImageHistoryScreen', {userInfo: userInfo})}
           text="Histórico de Imagens"
         />
       </View>

@@ -9,4 +9,8 @@ export default class ImageServiceMock implements ImageServiceInterface {
       return new Promise((resolve, reject) => {
       });
     }
+    async getImage(props: any) {
+      return new Promise((resolve, reject) => {
+      });
+    }
   }

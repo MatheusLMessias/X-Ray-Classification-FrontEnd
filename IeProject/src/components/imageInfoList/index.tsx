@@ -21,9 +21,8 @@ const ImageInfoList = (props: ImageInfoListProps) => {
       <Text>{`${PACIENTE_LIST} ${props.data.username}`}</Text>
       <Text>{`${IDADE_LIST} ${props.data.age}`}</Text>
       <Text style={styles.titleList} numberOfLines={1}>
-        {TITULO_DIAGNOSTICO}
+        {`${TITULO_DIAGNOSTICO} ${props.data.result}`}
       </Text>
-      <Text style={styles.textList}>{props.data.result}</Text>
     </View>
   );
 };

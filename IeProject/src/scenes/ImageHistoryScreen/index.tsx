@@ -1,4 +1,12 @@
-import {Button, FlatList, Image, Text, View} from 'react-native';
+import {
+  Button,
+  FlatList,
+  Image,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import {HEADER_TELA_HISTORICO_IMAGENS} from '../../resources/values/strings';
 import Header from '../../components/header';
 import ModalComponent from '../../components/modal';
@@ -32,23 +40,31 @@ const ImageHistoryScreen = ({navigation}: ImageHistoryScreenProps) => {
         }}
         name={HEADER_TELA_HISTORICO_IMAGENS}
       />
-      {loading == true ? (
-        <LoadingComponent visible={loading} />
-      ) : (
-        <FlatList
-          data={userInfoFinal}
-          renderItem={({item}) => {
-            return (
-              <View>
-                <Text>{item.name}</Text>
-              </View>
-            );
-          }}
-          keyExtractor={item => item.user_id}
-        />
-      )}
 
-      {/* 
+        {loading == true ? (
+          <View>
+            <LoadingComponent visible={loading} />
+          </View>
+        ) : (
+          <FlatList
+            data={userInfoFinal}
+            renderItem={({item}) => {
+              return (
+                <ScrollView>
+                  <InfoRaioXComponent
+                    info={item}
+                    modalFuction={modalFuction}
+                    openClosed={openClosed}
+                  />
+                  </ScrollView>
+                
+              );
+            }}
+            keyExtractor={item => item.user_id}
+          />
+        )}
+
+        {/* 
       <ModalComponent
         openClosed={openClosed}
         dismiss={() => navigation.navigate('InitialScreen')}
@@ -56,6 +72,7 @@ const ImageHistoryScreen = ({navigation}: ImageHistoryScreenProps) => {
         data={data}
         text={text}
       /> */}
+
     </View>
   );
 };

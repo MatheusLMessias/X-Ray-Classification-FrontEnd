@@ -3,7 +3,7 @@ export const TEXTO_BOAS_VINDAS_TELA_INICIAL = 'no aplicativo X-Ray Classificatio
 export const HEADER_TELA_HISTORICO_IMAGENS = 'Histórico de Imagens'
 
 export const TITULO_MODAL = 'Informações do Raio-X'
-export const TITULO_DIAGNOSTICO = 'Diagnóstico'
+export const TITULO_DIAGNOSTICO = 'Diagnóstico:'
 
 export const RAIOX_LIST = 'Apelido Raio-X:'
 export const DATA_LIST = 'Data:'

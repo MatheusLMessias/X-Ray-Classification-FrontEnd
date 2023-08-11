@@ -29,6 +29,13 @@ const useInitialScreen = (navigation: any) => {
     setInsertInfos({apelido: raioxName, data: date, paciente: patient, idade: age, imagem: imageBase64});
   }, [raioxName, date, patient, age, imageBase64]);
 
+  useEffect(() => {
+    setRaioxName('')
+    setDate('')
+    setPatient('')
+    setAge('')
+  }, []);
+
   const verifyValues = () => {
     invalidField.invalid = false;
     Object.entries(insertInfos).forEach(field => {
@@ -47,7 +54,6 @@ const useInitialScreen = (navigation: any) => {
   const imageInsert = async () => {
     try {
       const image = await DocumentPicker.pick();
-      setImageBase64(image);
       RNFetchBlob.fs
         .readFile(image[0].uri, 'base64')
         .then(data => {
@@ -67,13 +73,14 @@ const useInitialScreen = (navigation: any) => {
     const verify = verifyValues();
     if(verify == true){
       const response = await postInfoRaioX();
+      console.log(response)
       if(response){
         if(response.error){
           Alert.alert('Error: ' + 'Imagem já classificada anteriormente')
         } else {
           setInfoPatient(response)
           modalFuctionInsertImageInfo(false)
-          Alert.alert('Raio X inserido com sucesso', 'Deseja visualizar o resultado? Você também pode visualizar pela tela de histórico de imagens', [
+          Alert.alert('Raio X inserido com sucesso', 'Deseja visualizar o resultado? Você também pode visualizar pela tela de Histórico de Imagens', [
             {text: 'Não', onPress: () => {}, style: 'cancel'},
             {
               text: 'Visualizar',

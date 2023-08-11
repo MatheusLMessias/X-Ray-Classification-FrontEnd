@@ -57,22 +57,11 @@ const ImageHistoryScreen = ({navigation}: ImageHistoryScreenProps) => {
                     openClosed={openClosed}
                   />
                   </ScrollView>
-                
               );
             }}
             keyExtractor={item => item.user_id}
           />
         )}
-
-        {/* 
-      <ModalComponent
-        openClosed={openClosed}
-        dismiss={() => navigation.navigate('InitialScreen')}
-        route={() => modalFuction(false)}
-        data={data}
-        text={text}
-      /> */}
-
     </View>
   );
 };

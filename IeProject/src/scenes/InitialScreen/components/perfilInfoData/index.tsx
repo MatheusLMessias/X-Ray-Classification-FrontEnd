@@ -13,8 +13,8 @@ interface PerfilInfoDataProps {
 const PerfilInfoData = (props: PerfilInfoDataProps) => {
   return (
     <View style={styles.containerList}>
-      <Text>{`${NOME_PERFIL_INFO} ${props.data.name}`}</Text>
-      <Text>{`${EMAIL_PERFIL_INFO} ${props.data.email}`}</Text>
+      <Text>{`${NOME_PERFIL_INFO} ${props.data.response.user.nome}`}</Text>
+      <Text>{`${EMAIL_PERFIL_INFO} ${props.data.response.user.email}`}</Text>
     </View>
   );
 };

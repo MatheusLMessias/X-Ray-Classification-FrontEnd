@@ -67,8 +67,7 @@ const InitialScreen = ({navigation}: InitialScreenProps) => {
         dismiss={() => navigation.navigate('InitialScreen')}
         onPress={() => modalFuctionPerfilInfo(false)}
         handleLogout={handleLogout}
-        data={data}
-        text={''}
+        data={userInfo}
       />
 
       <ModalComponentInsertImageInfo

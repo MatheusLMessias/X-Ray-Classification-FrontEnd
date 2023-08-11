@@ -2,6 +2,7 @@ import {useEffect, useState} from 'react';
 import { Alert } from 'react-native';
 import Login from '../../../models/Login';
 import { userService } from '../../../services';
+import { TERMO } from '../../../resources/values/strings';
 
 const UseLoginScreen = (navigation: any) => {
   const [email, setEmail] = useState<String>('');
@@ -48,7 +49,7 @@ const UseLoginScreen = (navigation: any) => {
         if(response.error){
           Alert.alert('Error: ' + response.error)
         } else {
-          Alert.alert('Login efetuado com sucesso', 'Usufrua consciente do app X-Ray', [
+          Alert.alert('Login efetuado com sucesso', `${TERMO}`, [
             {text: 'OK', onPress: () => navigation.navigate('InitialScreen', {response: response}), style: 'cancel'}
           ]);
         }

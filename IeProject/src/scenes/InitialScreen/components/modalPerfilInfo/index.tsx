@@ -10,7 +10,7 @@ interface ModalProps {
   openClosed: boolean;
   dismiss: any;
   data: Object;
-  text: String;
+  text?: String;
   onPress: any;
 }
 
@@ -49,7 +49,6 @@ const ModalComponentPerfilInfo = (props: ModalProps) => {
                 borderColor="#F44336"
               />
             </View>
-            <Text style={styles.textList}>{props.text}</Text>
           </View>
         </View>
       </Modal>

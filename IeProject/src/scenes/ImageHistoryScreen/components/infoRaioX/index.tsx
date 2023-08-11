@@ -17,8 +17,8 @@ const InfoRaioXComponent = (props: ButtonComponentProps) => {
         onPress={() => {
           props.modalFuction(true);
         }}>
-        <Text style={styles.buttonComponentText}>{`Nome Raio-X: ${props.info.name}`}</Text>
-        <Text style={styles.buttonComponentText}>{`Nome paciente: ${props.info.username}`}</Text>
+        <Text style={styles.buttonComponentText}>{`Nome Raio-X: ${props.info.username}`}</Text>
+        <Text style={styles.buttonComponentText}>{`Nome paciente: ${props.info.name}`}</Text>
       </TouchableOpacity>
       <ModalComponent
         openClosed={props.openClosed}

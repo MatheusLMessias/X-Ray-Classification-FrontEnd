@@ -18,6 +18,19 @@ const styles = StyleSheet.create({
   textList: {
     marginLeft: 30,
   },
+
+  containerImage: {
+    marginStart: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  image: {
+    marginTop: 10,
+    width: 150, 
+    height: 150, 
+    borderWidth: 1
+  }
 });
 
 export default styles;

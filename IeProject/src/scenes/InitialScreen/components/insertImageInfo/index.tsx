@@ -26,7 +26,7 @@ const InsertImageInfo = (props: InsertImageInfoProps) => {
     <View style={styles.containerList}>
       <InputInsertComponent
         label={RAIOX_INSERT_IMAGE_INFO}
-        placeholder="Digite o nome do raio-x"
+        placeholder="Digite o apelido do raio-x"
         type="default"
         secure={false}
         data={props.raioxName}

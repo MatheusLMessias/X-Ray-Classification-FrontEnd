@@ -12,7 +12,7 @@ export const IDADE_LIST = 'Idade:'
 
 export const TITULO_INSERT_IMAGE_INFO = 'Inserir informações do Raio-X'
 
-export const RAIOX_INSERT_IMAGE_INFO = 'Nome do Raio-X'
+export const RAIOX_INSERT_IMAGE_INFO = 'Apelido do Raio-X'
 export const DATA_INSERT_IMAGE_INFO = 'Data'
 export const PACIENTE_INSERT_IMAGE_INFO = 'Paciente'
 export const IDADE_INSERT_IMAGE_INFO = 'Idade'
@@ -27,3 +27,5 @@ export const TITULO_BUTTON_TELA_REGISTRO = 'Registrar'
 export const TITULO_HEADER_TELA_LOGIN = "Login"
 export const TITULO_BUTTON_TELA_LOGIN_REGISTRAR = 'Registrar'
 export const TITULO_BUTTON_TELA_LOGIN_LOGAR = 'Login'
+
+export const TERMO = 'Este aplicativo utiliza inteligência artificial para auxiliar na análise de imagens de raios-X e sugerir possíveis diagnósticos. No entanto, é crucial lembrar que a avaliação médica tradicional é insubstituível, a interpretação de um médico considera não apenas as imagens, mas também informações clínicas e contextuais para fornecer um diagnóstico preciso. Utilize este aplicativo como uma ferramenta complementar e consulte sempre um profissional de saúde para obter orientação médica confiável. Sua saúde é nossa prioridade.'

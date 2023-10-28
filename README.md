@@ -26,24 +26,22 @@
     <a href="https://developer.apple.com/xcode/" target="_blank">
         <img src="https://img.shields.io/badge/Xcode-007ACC?style=for-the-badge&logo=Xcode&logoColor=white" alt="XCode">
     </a>
-    <img src="http://img.shields.io/static/v1?label=STATUS&message=FINISHED&color=GREEN&style=for-the-badge" alt="Status">
 </p>
 
 <p align="center">
-    Kanban
+    Kanban Board and Prototype
 </p>
 <p align="center">
     <a href="https://trello.com/b/AOPMfJYs/projeto-ie" target="_blank">
         <img src="https://img.shields.io/badge/Trello-0052CC?style=for-the-badge&logo=trello&logoColor=white" alt="Trello">
     </a>
-</p>
-<p align="center">
-    Prototype
-</p>
-<p align="center">
     <a href="https://www.figma.com/file/T7Mm4eDOujf1xVwze5rcVe/Material-Kit-React-Native---Mobile-Template-(Community)-(Community)?type=design&node-id=0-1&mode=design&t=06iFSF2Zbw6qqKFn-0" target="_blank">
         <img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white" alt="Figma">
     </a>
+</p>
+
+<p align="center">
+    <img src="http://img.shields.io/static/v1?label=STATUS&message=FINISHED&color=GREEN&style=for-the-badge" alt="Status">
 </p>
 
 ## Features :wrench:
@@ -57,7 +55,7 @@
 ## Running Application :arrow_forward:
 First, clone this repository:
 ```
-git clone https://github.com/MatheusLMessias/batpontoproject-frontend.git
+git clone https://github.com/MatheusLMessias/X-Ray-Classification-FrontEnd.git
 ```
 React Native environment setup:
 ```
